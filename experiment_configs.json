@@ -1,0 +1,39 @@
+{
+    "experiments": {
+      "english_to_all": {
+        "base_path": "/Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest",
+        "source_language": "English",
+        "source_code": "eng_Latn",
+        "llm_types": ["gpt-4o-mini"],
+        "temperature": 1,
+        "num_lines": 50,
+        "strategy": "pass@100-vanilla",
+        "target_languages": [ "Telugu", "Tagalog", "Croatian", "Sinhala"
+        ]
+      },
+        "test": {
+            "base_path": "/Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest",
+            "source_language": "English",
+            "source_code": "eng_Latn",
+            "llm_types": ["gpt-4o-mini"],
+            "temperature": 1,
+            "num_lines": 10,
+            "strategy": "pass@10-vanilla",
+            "target_languages": [
+            "Hindi", "Russian", "Arabic"
+            ]
+        },
+        "test_together": {
+            "base_path": "/Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest",
+            "source_language": "English",
+            "source_code": "eng_Latn",
+            "llm_types": ["meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"],
+            "temperature": 1,
+            "num_lines": 10,
+            "strategy": "pass@10-vanilla",
+            "target_languages": [
+            "Hindi", "Russian", "Arabic"
+            ]   
+        }
+    }
+}

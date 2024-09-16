@@ -1,3 +1,6 @@
 .env
 floresp*
 .DS_Store
+__pycache__/
+
+
