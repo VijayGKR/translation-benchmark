@@ -1,0 +1,8 @@
+{
+    "pass@n-vanilla": {
+      "passes": 1,
+      "temperature": 0.0,
+      "system_prompt": "You are an expert at translating text from {in_lang} to {out_lang}.",
+      "prompt_template": "Translate the following text from {in_lang} to {out_lang}:\n\n{source}\n\nOnly return the translated text."
+    }
+}
