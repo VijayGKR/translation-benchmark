@@ -1,3 +1,5 @@
 .env
-floresp*__pycache__/
+floresp*
+__pycache__/
+
 

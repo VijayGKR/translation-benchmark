@@ -1,8 +1,20 @@
 {
-    "pass@n-vanilla": {
+    "pass@1-vanilla": {
       "passes": 1,
       "temperature": 0.0,
       "system_prompt": "You are an expert at translating text from {in_lang} to {out_lang}.",
       "prompt_template": "Translate the following text from {in_lang} to {out_lang}:\n\n{source}\n\nOnly return the translated text."
-    }
+    },
+    "pass@10-vanilla": {
+        "passes": 10,
+        "temperature": 1,
+        "system_prompt": "You are an expert at translating text from {in_lang} to {out_lang}.",
+        "prompt_template": "Translate the following text from {in_lang} to {out_lang}:\n\n{source}\n\nOnly return the translated text."
+      },
+    "pass@100-vanilla": {
+        "passes": 100,
+        "temperature": 1,
+        "system_prompt": "You are an expert at translating text from {in_lang} to {out_lang}.",
+        "prompt_template": "Translate the following text from {in_lang} to {out_lang}:\n\n{source}\n\nOnly return the translated text."
+      }
 }
