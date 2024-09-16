@@ -33,6 +33,14 @@ def run_experiment(config, experiment_name):
         "English": "eng_Latn"
     }
 
+    LLM_TYPES_MAP = {
+        "gpt-4o-mini": "gpt-4o-mini",
+        "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo": "Llama-3.1-8B-Instruct-Turbo",
+    }
+
+    # Update LLM_TYPES to use the actual names
+    LLM_TYPES_NAME = [LLM_TYPES_MAP.get(llm, llm) for llm in LLM_TYPES]
+
     # Create a folder for the experiment outputs
     output_folder = f"output_{experiment_name}"
     os.makedirs(output_folder, exist_ok=True)
@@ -47,7 +55,7 @@ def run_experiment(config, experiment_name):
             print(f"Temperature: {TEMPERATURE}")
             print(f"Strategy: {STRATEGY}")
             
-            output_file = os.path.join(output_folder, f"{llm_type}_{SOURCE_LANGUAGE}_to_{target_language}.txt")
+            output_file = os.path.join(output_folder, f"{LLM_TYPES_MAP.get(llm_type, llm_type)}_{SOURCE_LANGUAGE}_to_{target_language}.txt")
             
             command = [
                 "python3", "generate.py",

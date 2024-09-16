@@ -23,7 +23,7 @@ async def executeCalls(calls):
             elif llm_type == 'Google':
                 llm = GoogleLLM(call['llm'], session)
             elif llm_type == 'Together':
-                llm = TogetherLLM(call['llm'], session, model_name='gpt-4o')
+                llm = TogetherLLM(call['llm'], session)
             else:
                 raise ValueError(f"Unknown LLM type: {llm_type}")
             

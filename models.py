@@ -16,7 +16,8 @@ MODELS = {
     "gpt-4o-mini": "OpenAI",
     "claude-3-5-sonnet": "Anthropic",
     "claude-3-haiku": "Anthropic",
-    "gemini-1.5-pro": "Google"
+    "gemini-1.5-pro": "Google",
+    "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo": "Together"
 }
 
 __all__ = ['MODELS']
@@ -126,13 +127,16 @@ class GoogleLLM(LLM):
         )
         return result.text
     
-    
+
 class TogetherLLM(LLM):
     def __init__(self, model_name, session):
         super().__init__()
         self.model_name = model_name
         self.session = session
-        self.client = together.AsyncTogether(api_key=os.getenv("TOGETHER_API_KEY"))
+        self.client = AsyncOpenAI(
+            api_key=os.getenv("TOGETHER_API_KEY"),
+            base_url=os.getenv("TOGETHER_BASE_URL", "https://api.together.xyz/v1")
+        )
 
     async def __call__(self, prompt, system_prompt, temperature=0.0):
         completion = await self.client.chat.completions.create(
