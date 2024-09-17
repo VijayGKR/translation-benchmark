@@ -1,0 +1,30 @@
+DA_scores.txt: 0.7165
+ES_scores.txt: 0.6751
+LV_scores.txt: 0.7298
+SV_scores.txt: 0.7105
+AR_scores.txt: 0.6423
+HU_scores.txt: 0.6605
+TR_scores.txt: 0.6529
+CS_scores.txt: 0.7086
+IT_scores.txt: 0.6346
+LT_scores.txt: 0.7281
+NL_scores.txt: 0.6506
+RU_scores.txt: 0.7047
+NB_scores.txt: 0.8290
+UK_scores.txt: 0.6649
+BG_scores.txt: 0.6866
+DE_scores.txt: 0.7047
+KO_scores.txt: 0.6059
+ID_scores.txt: 0.7385
+EL_scores.txt: 0.5624
+SL_scores.txt: 0.6706
+PL_scores.txt: 0.6935
+SK_scores.txt: 0.7135
+PT-PT_scores.txt: 0.7504
+FR_scores.txt: 0.6813
+JA_scores.txt: 0.6627
+RO_scores.txt: 0.7521
+FI_scores.txt: 0.6480
+ZH-HANS_scores.txt: 0.7030
+
+Overall Average: 0.6886
