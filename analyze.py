@@ -35,7 +35,7 @@ def calculate_average_max(filename, group_size=100, lines_to_include=None):
         return 0
 
 if __name__ == "__main__":
-    directory = '/Users/vijaykumaravelrajan/Downloads/google_eval_data'
+    directory = '/Users/vijaykumaravelrajan/Downloads/deepl_eval_data'
     results = {}
     group_size = 1  # Default group size, can be changed here
 

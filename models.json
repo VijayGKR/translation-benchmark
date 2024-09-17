@@ -1,0 +1,40 @@
+{
+  "models": [
+    {
+      "name": "gpt-4",
+      "apiName": "gpt-4",
+      "provider": "OpenAI"
+    },
+    {
+      "name": "gpt-4o",
+      "apiName": "gpt-4o",
+      "provider": "OpenAI"
+    },
+    {
+      "name": "gpt-4o-mini",
+      "apiName": "gpt-4o-mini",
+      "provider": "OpenAI"
+    },
+    {
+      "name": "Claude-3.5-Sonnet",
+      "apiName": "",
+      "provider": "Anthropic"
+    },
+    {
+      "name": "Gemini-1.5-Pro",
+      "apiName": "gemini-1.5-pro",
+      "provider": "Google"
+    },
+    {
+      "name": "Llama-3.1-8B",
+      "apiName": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+      "provider": "Together"
+    },
+    {
+      "name": "Gemma-2-27b",
+      "apiName": "google/gemma-2-27b-it",
+      "provider": "Together"
+    }
+
+  ]
+}

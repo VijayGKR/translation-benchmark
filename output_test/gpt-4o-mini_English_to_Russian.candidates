@@ -1,10 +1,3 @@
-MODELNAME gpt-4o-mini
-NLINES 10
-STRATEGY_NAME pass@10-vanilla
-SOURCEFILE /Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest/devtest.eng_Latn
-SOURCE English
-TARGET Russian
-
 «Теперь у нас есть 4-месячные мыши, которые не являются диабетиками и раньше были диабетиками», добавил он.
 «Теперь у нас есть 4-месячные мыши, которые не являются диабетическими, но раньше были диабетиками», добавил он.
 «У нас теперь есть мыши в возрасте 4 месяцев, которые не страдают диабетом, хотя раньше они были диабетиками», добавил он.

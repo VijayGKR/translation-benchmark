@@ -30,10 +30,22 @@
             "base_path": "/Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest",
             "source_language": "English",
             "source_code": "eng_Latn",
-            "llm_types": ["meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"],
+            "llm_types": ["Llama-3.1-8B"],
             "temperature": 1,
             "num_lines": 10,
-            "strategy": "pass@10-vanilla",
+            "strategy": "pass@1-vanilla",
+            "target_languages": [
+            "Hindi", "Russian", "Arabic"
+            ]   
+        },
+        "test_gemma": {
+            "base_path": "/Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest",
+            "source_language": "English",
+            "source_code": "eng_Latn",
+            "llm_types": ["Gemma-2-27b"],
+            "temperature": 1,
+            "num_lines": 10,
+            "strategy": "pass@1-vanilla",
             "target_languages": [
             "Hindi", "Russian", "Arabic"
             ]   
@@ -54,9 +66,3 @@
         }
     }
 }
-arabic, bulgarian, czech, danish, german, greek, Spanish, Finnish, French, Hungarian, Indonesian, Italian, Japanese, Korean, 
-Lithuanian, Latvian, Norwegian, Dutch, Polish, Portuguese, Romanian, Russian
- "Russian", "Arabic", "Spanish", "Japanese", "German",
-          "French", "Korean", "Italian", "Greek", "Portuguese",
-           "Romanian",
-Missing turkish

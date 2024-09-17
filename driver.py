@@ -34,12 +34,9 @@ def run_experiment(config, experiment_name):
         "English": "eng_Latn"
     }
 
-    LLM_TYPES_MAP = {
-        "gpt-4o-mini": "gpt-4o-mini",
-        "gpt-4o": "gpt-4o",
-        "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo": "Llama-3.1-8B-Instruct-Turbo",
-    }
-
+    # Load models configuration
+    with open('models.json', 'r') as models_file:
+        models_config = json.load(models_file)['models']
 
     # Create a folder for the experiment outputs
     output_folder = f"output_{experiment_name}"
@@ -49,17 +46,24 @@ def run_experiment(config, experiment_name):
         target_code = TARGET_CODES[target_language]
         reference_file = f"{BASE_PATH}/devtest.{target_code}"
         for llm_type in LLM_TYPES:
+            model = next((m for m in models_config if m['name'] == llm_type), None)
+            if not model:
+                print(f"Warning: Model {llm_type} not found in models.json. Skipping.")
+                continue
+
             print(f"Running with LLM type: {llm_type}")
             print(f"Source Language: {SOURCE_LANGUAGE}")
             print(f"Target Language: {target_language}")
             print(f"Temperature: {TEMPERATURE}")
             print(f"Strategy: {STRATEGY}")
             
-            output_file = os.path.join(output_folder, f"{LLM_TYPES_MAP.get(llm_type, llm_type)}_{SOURCE_LANGUAGE}_to_{target_language}.txt")
+            api_name = model['apiName']
+            name = model['name']
+            output_file = os.path.join(output_folder, f"{name}_{SOURCE_LANGUAGE}_to_{target_language}.txt")
             
             command = [
                 "python3", "generate.py",
-                llm_type,
+                api_name,
                 SOURCE_LANGUAGE,
                 target_language,
                 SOURCE_FILE,
@@ -72,7 +76,13 @@ def run_experiment(config, experiment_name):
 
         ref_output_path = output_file.replace('.txt', '.references')
         no_header_output_path = output_file.replace('.txt', '.candidates')
-        generate_reference_files(output_file,ref_output_path=ref_output_path, no_header_output_path=no_header_output_path)
+        # Check if output_file exists before proceeding
+        if os.path.exists(output_file):
+            ref_output_path = output_file.replace('.txt', '.references')
+            no_header_output_path = output_file.replace('.txt', '.candidates')
+            generate_reference_files(output_file, ref_output_path=ref_output_path, no_header_output_path=no_header_output_path)
+        else:
+            print(f"Warning: Output file {output_file} does not exist. Skipping reference file generation.")
 
 def main():
     parser = argparse.ArgumentParser(description="Run translation experiments.")

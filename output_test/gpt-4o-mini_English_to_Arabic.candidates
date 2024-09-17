@@ -1,10 +1,3 @@
-MODELNAME gpt-4o-mini
-NLINES 10
-STRATEGY_NAME pass@10-vanilla
-SOURCEFILE /Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest/devtest.eng_Latn
-SOURCE English
-TARGET Arabic
-
 "لدينا الآن فئران عمرها 4 أشهر غير مصابة بالسكري والتي كانت مصابة بالسكري سابقاً"، أضاف.
 وأضاف: "لدينا الآن فئران عمرها 4 أشهر غير مصابة بالسكري، كانت فيما سبق مصابة بالسكري."
 "لدينا الآن فئران تبلغ من العمر 4 أشهر وغير مصابة بالسكري كانت قد تعرضت للسكري سابقًا،" أضاف.

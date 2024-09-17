@@ -15,7 +15,7 @@ async def executeCalls(calls):
     async with aiohttp.ClientSession() as session:
         tasks = []
         for call in calls:
-            llm_type = call['model_version']
+            llm_type = call['model_provider']
             if llm_type == 'OpenAI':
                 llm = OpenAILLM(call['llm'], session)
             elif llm_type == 'Anthropic':
@@ -38,6 +38,21 @@ def generateCalls(llm, in_lang, out_lang, source_file, out_file, strategy, num_l
     strategy_config = load_strategy(strategy)
     calls = []
 
+    # Load models from JSON file
+    with open('models.json', 'r') as f:
+        models_data = json.load(f)
+
+    # Find the matching model and get its provider
+    model_provider = None
+    for model in models_data['models']:
+        if model['apiName'] == llm:
+            model_provider = model['provider']
+            break
+
+    if model_provider is None:
+        raise ValueError(f"Model '{llm}' not found in models.json")
+
+
     for source in sources:
         system_prompt = strategy_config['system_prompt'].format(in_lang=in_lang, out_lang=out_lang)
         prompt = strategy_config['prompt_template'].format(in_lang=in_lang, out_lang=out_lang, source=source)
@@ -45,7 +60,7 @@ def generateCalls(llm, in_lang, out_lang, source_file, out_file, strategy, num_l
         for _ in range(strategy_config['passes']):
             calls.append({
                 'llm': llm,
-                'model_version': MODELS[llm],
+                'model_provider': model_provider,
                 'prompt': prompt,
                 'system_prompt': system_prompt,
                 'temperature': strategy_config['temperature']
@@ -79,7 +94,7 @@ def process_results(results, args):
 
 async def main():
     parser = argparse.ArgumentParser(description="Language Translation benchmark")
-    parser.add_argument("llm", help="Language model to use")
+    parser.add_argument("llm", help="Language model to use defined in models.json")
     parser.add_argument("in_lang", help="Input language")
     parser.add_argument("out_lang", help="Output language")
     parser.add_argument("source_file", help="Source file path")

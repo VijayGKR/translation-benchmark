@@ -1,10 +1,3 @@
-MODELNAME gpt-4o-mini
-NLINES 10
-STRATEGY_NAME pass@10-vanilla
-SOURCEFILE /Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest/devtest.eng_Latn
-SOURCE English
-TARGET Hindi
-
 "हमारे पास अब 4-महीने के चूहों का एक समूह है जो गैर-डायबिटिक हैं जबकि वे पहले डायबिटिक थे," उन्होंने जोड़ा।
 "हमारे पास अब 4 महीने के चूहों की एक प्रजाति है जो गैर-डायबिटिक हैं, जो पहले डायबिटिक थे," उन्होंने कहा।
 "हमारे पास अब 4 महीने पुराने चूहों हैं जो गैर-डायबिटिक हैं जबकि पहले वे डायबिटिक थे," उन्होंने कहा।
