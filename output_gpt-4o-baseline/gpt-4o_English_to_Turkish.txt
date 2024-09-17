@@ -1,0 +1,57 @@
+MODELNAME gpt-4o
+NLINES 50
+STRATEGY_NAME pass@1-vanilla
+SOURCEFILE /Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest/devtest.eng_Latn
+SOURCE English
+TARGET Turkish
+
+"Eskiden diyabetik olan ve şimdi diyabetik olmayan 4 aylık farelerimiz var," diye ekledi.
+Halifax, Nova Scotia'daki Dalhousie Üniversitesi'nde tıp profesörü ve Kanada Diyabet Derneği'nin klinik ve bilimsel bölüm başkanı Dr. Ehud Ur, araştırmanın hala erken aşamalarında olduğu konusunda uyardı.
+Bazı diğer uzmanlar gibi, diyabetin tedavi edilip edilemeyeceği konusunda şüpheci, bu bulguların zaten Tip 1 diyabeti olan insanlar için hiçbir önemi olmadığını belirtiyor.
+Pazartesi günü, İsveç Akademisi'ndeki Nobel Edebiyat Komitesi'nin daimi sekreteri Sara Danius, İsveç'teki Sveriges Radio'da bir radyo programında, komitenin 2016 Nobel Edebiyat Ödülü'nü kazandığını Bob Dylan'a doğrudan bildiremediğini ve ona ulaşma çabalarından vazgeçtiğini kamuoyuna duyurdu.
+Danius, "Şu anda hiçbir şey yapmıyoruz. En yakın iş arkadaşına telefon ettim ve e-postalar gönderdim, çok dostane yanıtlar aldım. Şimdilik bu kesinlikle yeterli," dedi.
+Daha önce, Ring'in CEO'su Jamie Siminoff, şirketin, kapı zilinin garajındaki atölyesinden duyulmadığında başladığını belirtmişti.
+WiFi kapı zili yaptı, dedi.
+Siminoff, 2013 yılında Shark Tank bölümünde yer aldıktan sonra satışların arttığını söyledi, ancak program paneli girişimi finanse etmeyi reddetti.
+2017'nin sonlarında, Siminoff alışveriş televizyon kanalı QVC'de göründü.
+Ring ayrıca rakip güvenlik şirketi ADT Corporation ile bir davayı çözdü.
+Bir deneysel aşının Ebola ölüm oranını azaltabildiği görülse de, şimdiye kadar mevcut enfeksiyonu tedavi etmek için uygun olduğu açıkça gösterilen hiçbir ilaç bulunmamaktadır.
+Bir antikor kokteyli olan ZMapp, başlangıçta alanda umut vaat etti, ancak resmi çalışmalar ölümün önlenmesinde beklenenden daha az fayda sağladığını gösterdi.
+PALM denemesinde, ZMapp bir kontrol olarak kullanıldı, yani bilim insanları onu bir temel olarak kullanıp diğer üç tedaviyi onunla karşılaştırdılar.
+ABD Jimnastik, Amerika Birleşik Devletleri Olimpiyat Komitesi'nin mektubunu desteklemekte ve Olimpiyat ailesinin tüm sporcularımız için güvenli bir ortamı teşvik etme konusundaki mutlak gerekliliğini kabul etmektedir.
+Sporcularımızın ve kulüplerimizin çıkarlarının ve sporlarının, organizasyonumuz içinde anlamlı değişikliklerle ilerleyerek daha iyi hizmet görebileceği konusunda USOC'nin açıklamasıyla hemfikiriz, sertifikayı iptal etmek yerine.
+ABD Jimnastik, Larry Nassar'ın mağdurları tarafından cesurca anlatılan bu boyuttaki istismarın nasıl bu kadar uzun süre fark edilmeden kalabildiğini ortaya çıkarabilecek bağımsız bir soruşturmayı desteklemekte ve gerekli ve uygun olabilecek her türlü değişikliği benimsemektedir.
+ABD Jimnastik ve ABD Olimpiyat Komitesi'nin aynı hedefi var — jimnastik ve diğer spor dallarını, sporcuların hayallerini güvenli, pozitif ve güçlendirilmiş bir ortamda takip edebilmeleri için mümkün olduğunca güvenli hale getirmek.
+1960'lar boyunca Brzezinski, John F. Kennedy'nin danışmanı olarak ve ardından Lyndon B. Johnson yönetiminde çalıştı.
+1976 seçimleri sırasında Carter'a dış politika konusunda tavsiyelerde bulundu, ardından 1977'den 1981'e kadar Henry Kissinger'ın yerine Ulusal Güvenlik Danışmanı (NSA) olarak görev yaptı.
+NSA olarak, Carter'a dünya meselelerini diplomatik olarak ele alırken yardımcı oldu, örneğin 1978'deki Camp David Anlaşmaları; 1970'lerin sonlarında ABD-Çin ilişkilerinin normalleştirilmesi; İran Devrimi, 1979'da İran rehine krizine yol açan; ve 1979'da Sovyetler Birliği'nin Afganistan'ı işgali.
+Ryan Gosling ve Emma Stone'un rol aldığı film, tüm ana kategorilerde adaylık aldı.
+Gosling ve Stone sırasıyla En İyi Erkek Oyuncu ve En İyi Kadın Oyuncu dalında aday gösterildi.
+Diğer adaylıklar arasında En İyi Film, Yönetmen, Görüntü Yönetimi, Kostüm Tasarımı, Film Kurgusu, Orijinal Müzik, Yapım Tasarımı, Ses Kurgusu, Ses Miksajı ve Orijinal Senaryo bulunmaktadır.
+Filmden iki şarkı, Audition (The Fools Who Dream) ve City of Stars, en iyi özgün şarkı dalında aday gösterildi. Lionsgate stüdyosu, diğer tüm stüdyolardan daha fazla olmak üzere 26 adaylık aldı.
+Pazar günü geç saatlerde, Amerika Birleşik Devletleri Başkanı Donald Trump, basın sekreteri aracılığıyla yaptığı açıklamada, ABD birliklerinin Suriye'den ayrılacağını duyurdu.
+Açıklama, Trump'ın Türkiye Cumhurbaşkanı Recep Tayyip Erdoğan ile telefon görüşmesi yapmasının ardından yapıldı.
+Açıklamada, Avrupa ülkelerinin geri almayı reddettiği yakalanan IŞİD savaşçılarının korunmasını da Türkiye'nin devralacağı belirtildi.
+Bu, en azından bazı dinozorların tüylere sahip olduğunu, zaten yaygın olan bir teoriyi doğrulamakla kalmaz, aynı zamanda fosillerin genellikle sağlayamadığı renk ve üç boyutlu düzenleme gibi ayrıntıları da sunar.
+. Bilim insanları, bu hayvanın tüylerinin üst kısmının kestane rengi, alt kısmının ise soluk veya karotenoid renkli olduğunu söylüyor.
+Bulgu ayrıca kuşlarda tüylerin evrimine dair içgörü sağlar.
+Dinozor tüylerinin iyi gelişmiş bir şaftı, yani rachis'i olmadığı, ancak tüylerin diğer özelliklerine — barb ve barbüllere — sahip olduğu için, araştırmacılar rachis'in muhtemelen bu diğer özelliklerden sonra gelen bir evrimsel gelişme olduğunu çıkardılar.
+Tüylerin yapısı, uçuşta kullanılmadıklarını, daha çok sıcaklık düzenlemesi veya gösteriş için kullanıldıklarını göstermektedir. Araştırmacılar, bu genç bir dinozorun kuyruğu olmasına rağmen, örneğin yetişkin tüyleri ve bir civcivin tüyleri olmadığını öne sürdüler.
+Araştırmacılar, bu genç bir dinozorun kuyruğu olmasına rağmen, örneğin yetişkin tüyleri ve bir civcivin tüyleri olmadığını öne sürdüler.
+Dün sabah Gaziantep, Türkiye'deki polis merkezinde patlayan bir bomba iki polis memurunu öldürdü ve yirmiden fazla kişiyi yaraladı.
+Valilik, yaralılardan on dokuzunun polis memuru olduğunu söyledi.
+Polis, saldırının sorumluluğundan şüpheli bir DAEŞ (IŞİD) militanını şüphelendiklerini söyledi.
+Güneş'in diğer yıldızlarla aynı temel prensipler üzerinde çalıştığını buldular: Sistemdeki tüm yıldızların etkinliğinin parlaklıkları, dönüşleri ve başka hiçbir şey tarafından yönlendirildiği bulundu.
+Işıma ve dönme, plazma akışıyla ilişkili olan bir yıldızın Rossby sayısını belirlemek için birlikte kullanılır.
+Rossby sayısı ne kadar küçükse, manyetik tersinmeler açısından yıldız o kadar az aktiftir.
+Seyahati sırasında, Iwasaki birçok kez sorun yaşadı.
+Korsanlar tarafından soyuldu, Tibet'te kuduz bir köpek tarafından saldırıya uğradı, Nepal'de evlilikten kaçtı ve Hindistan'da tutuklandı.
+802.11n standardı hem 2.4Ghz hem de 5.0Ghz frekanslarında çalışır.
+Bu, baz istasyonunun çift radyo olması koşuluyla, 802.11a, 802.11b ve 802.11g ile geriye dönük uyumlu olmasını sağlayacaktır.
+802.11n hızları, maksimum teorik 600Mbit/s veri aktarım hızı ile seleflerinden önemli ölçüde daha hızlıdır.
+Evli ve iki yetişkin çocuğu olan Duvall, hikayenin anlatıldığı Miller üzerinde büyük bir izlenim bırakmadı.
+Yorum yapması istendiğinde Miller, "Mike duruşma sırasında çok konuşuyor... Ben hazırlanıyordum, bu yüzden ne dediğini pek duymuyordum," dedi.
+"2005 seviyesinden 2020 yılına kadar GSYİH birimi başına karbondioksit emisyonlarını önemli ölçüde azaltmaya çalışacağız," dedi Hu.
+Kesintiler için bir rakam belirlemedi, bunların Çin'in ekonomik çıktısına göre yapılacağını söyledi.
+Hu, gelişmekte olan ülkeleri "önce kirletip sonra temizleme" yolundan kaçınmaya teşvik etti.
+Ancak, "gelişim aşamaları, sorumlulukları ve yeteneklerinin ötesine geçen yükümlülükleri üstlenmeleri istenmemelidir" diye ekledi.

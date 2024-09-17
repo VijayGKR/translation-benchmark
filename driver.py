@@ -36,6 +36,7 @@ def run_experiment(config, experiment_name):
 
     LLM_TYPES_MAP = {
         "gpt-4o-mini": "gpt-4o-mini",
+        "gpt-4o": "gpt-4o",
         "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo": "Llama-3.1-8B-Instruct-Turbo",
     }
 
@@ -71,7 +72,7 @@ def run_experiment(config, experiment_name):
 
         ref_output_path = output_file.replace('.txt', '.references')
         no_header_output_path = output_file.replace('.txt', '.candidates')
-        generate_reference_files(output_file, strategy_name=STRATEGY, num_lines=NUM_LINES, target_language=target_language, ref_output_path=ref_output_path, no_header_output_path=no_header_output_path)
+        generate_reference_files(output_file,ref_output_path=ref_output_path, no_header_output_path=no_header_output_path)
 
 def main():
     parser = argparse.ArgumentParser(description="Run translation experiments.")

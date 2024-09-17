@@ -1,0 +1,57 @@
+MODELNAME gpt-4o
+NLINES 50
+STRATEGY_NAME pass@1-vanilla
+SOURCEFILE /Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest/devtest.eng_Latn
+SOURCE English
+TARGET German
+
+"Wir haben jetzt vier Monate alte Mäuse, die nicht mehr diabetisch sind und früher diabetisch waren," fügte er hinzu.
+Dr. Ehud Ur, Professor für Medizin an der Dalhousie University in Halifax, Nova Scotia und Vorsitzender der klinischen und wissenschaftlichen Abteilung der Canadian Diabetes Association, warnte, dass die Forschung noch in den Anfängen steckt.
+Wie einige andere Experten ist er skeptisch, ob Diabetes geheilt werden kann, und weist darauf hin, dass diese Erkenntnisse für Menschen, die bereits Typ-1-Diabetes haben, keine Relevanz haben.
+Am Montag gab Sara Danius, ständige Sekretärin des Nobelkomitees für Literatur an der Schwedischen Akademie, während einer Radiosendung auf Sveriges Radio in Schweden öffentlich bekannt, dass das Komitee, nachdem es Bob Dylan nicht direkt über den Gewinn des Nobelpreises für Literatur 2016 erreichen konnte, seine Bemühungen, ihn zu kontaktieren, aufgegeben habe.
+Danius sagte: "Im Moment tun wir nichts. Ich habe seinen engsten Mitarbeiter angerufen und E-Mails geschickt und sehr freundliche Antworten erhalten. Für jetzt ist das sicherlich genug."
+Zuvor bemerkte der CEO von Ring, Jamie Siminoff, dass das Unternehmen entstand, als seine Türklingel in seiner Werkstatt in der Garage nicht hörbar war.
+Er hat eine WLAN-Türklingel gebaut, sagte er.
+Siminoff sagte, dass die Verkäufe nach seinem Auftritt in einer Shark Tank-Episode im Jahr 2013, in der das Show-Panel die Finanzierung des Startups ablehnte, gestiegen seien.
+Ende 2017 trat Siminoff im Einkaufssender QVC auf.
+Ring hat auch eine Klage mit dem konkurrierenden Sicherheitsunternehmen ADT Corporation beigelegt.
+Während ein experimenteller Impfstoff offenbar in der Lage ist, die Ebola-Sterblichkeit zu senken, wurde bisher kein Medikament eindeutig als geeignet zur Behandlung bestehender Infektionen nachgewiesen.
+Ein Antikörper-Cocktail, ZMapp, zeigte anfangs vielversprechende Ergebnisse im Feld, aber formale Studien wiesen darauf hin, dass er weniger Nutzen bei der Verhinderung des Todes hatte als erhofft.
+In der PALM-Studie diente ZMapp als Kontrollmittel, was bedeutet, dass Wissenschaftler es als Basis verwendeten und die drei anderen Behandlungen damit verglichen.
+USA Gymnastics unterstützt den Brief des Olympischen Komitees der Vereinigten Staaten und erkennt die absolute Notwendigkeit der olympischen Familie an, eine sichere Umgebung für alle unsere Athleten zu fördern.
+Wir stimmen der Erklärung des USOC zu, dass die Interessen unserer Athleten und Vereine sowie ihres Sports besser durch sinnvolle Veränderungen innerhalb unserer Organisation als durch die Entziehung der Anerkennung gewahrt werden können.
+USA Gymnastics unterstützt eine unabhängige Untersuchung, die möglicherweise aufdecken kann, wie der Missbrauch in dem von den Überlebenden von Larry Nassar so mutig beschriebenen Ausmaß so lange unentdeckt bleiben konnte, und begrüßt alle notwendigen und angemessenen Änderungen.
+USA Gymnastics und das USOC haben dasselbe Ziel – den Sport der Gymnastik und andere so sicher wie möglich zu machen, damit Athleten ihre Träume in einer sicheren, positiven und gestärkten Umgebung verfolgen können.
+In den 1960er Jahren arbeitete Brzezinski als Berater für John F. Kennedy und anschließend für die Regierung von Lyndon B. Johnson.
+Während der Auswahl 1976 beriet er Carter in Außenpolitik und diente dann von 1977 bis 1981 als Nationaler Sicherheitsberater (NSA), als Nachfolger von Henry Kissinger.
+Als NSA unterstützte er Carter bei der diplomatischen Bewältigung weltpolitischer Angelegenheiten, wie den Camp-David-Abkommen 1978; der Normalisierung der US-China-Beziehungen Ende der 1970er Jahre; der iranischen Revolution, die zur Geiselnahme in Iran 1979 führte; und der sowjetischen Invasion in Afghanistan 1979.
+Der Film, mit Ryan Gosling und Emma Stone in den Hauptrollen, erhielt Nominierungen in allen wichtigen Kategorien.
+Gosling und Stone erhielten Nominierungen als bester Schauspieler bzw. beste Schauspielerin.
+Die anderen Nominierungen umfassen Bester Film, Regie, Kamera, Kostümdesign, Filmschnitt, Originalmusik, Produktionsdesign, Tonschnitt, Tonmischung und Originaldrehbuch.
+Zwei Lieder aus dem Film, Audition (The Fools Who Dream) und City of Stars, erhielten Nominierungen für den besten Originalsong. Das Lionsgate-Studio erhielt 26 Nominierungen – mehr als jedes andere Studio.
+Spät am Sonntag gab der Präsident der Vereinigten Staaten, Donald Trump, in einer über den Pressesprecher übermittelten Erklärung bekannt, dass US-Truppen Syrien verlassen würden.
+Die Ankündigung erfolgte, nachdem Trump ein Telefongespräch mit dem türkischen Präsidenten Recep Tayyip Erdoğan geführt hatte.
+Die Türkei würde auch die Bewachung gefangener ISIS-Kämpfer übernehmen, die, so die Erklärung, europäische Nationen sich geweigert haben, zurückzuführen.
+Dies bestätigt nicht nur, dass zumindest einige Dinosaurier Federn hatten, eine bereits weit verbreitete Theorie, sondern liefert auch Details, die Fossilien im Allgemeinen nicht bieten können, wie Farbe und dreidimensionale Anordnung.
+Wissenschaftler sagen, dass das Gefieder dieses Tieres oben kastanienbraun und unten blass oder karotinoidfarben war.
+Der Fund gewährt auch Einblick in die Evolution der Federn bei Vögeln.
+Da die Dinosaurierfedern keinen gut entwickelten Schaft, genannt Rachis, haben, aber andere Merkmale von Federn — Bärte und Barbulae — aufweisen, schlossen die Forscher, dass der Rachis wahrscheinlich eine spätere evolutionäre Entwicklung als diese anderen Merkmale war.
+Die Struktur der Federn deutet darauf hin, dass sie nicht zum Fliegen, sondern zur Temperaturregulierung oder zur Schau verwendet wurden. Die Forscher vermuteten, dass, obwohl dies der Schwanz eines jungen Dinosauriers ist, die Probe erwachsenes Gefieder und nicht das Daunenfell eines Kükens zeigt.
+Die Forscher schlugen vor, dass, obwohl dies der Schwanz eines jungen Dinosauriers ist, die Probe erwachsenes Gefieder und nicht das Daunenfell eines Kükens zeigt.
+Eine Autobombe explodierte gestern Morgen vor dem Polizeipräsidium in Gaziantep, Türkei, tötete zwei Polizisten und verletzte mehr als zwanzig weitere Personen.
+Das Büro des Gouverneurs teilte mit, dass neunzehn der Verletzten Polizisten seien.
+Die Polizei sagte, sie verdächtige einen mutmaßlichen Daesh (ISIL) Kämpfer der Verantwortung für den Angriff.
+Sie fanden heraus, dass die Sonne nach den gleichen grundlegenden Prinzipien wie andere Sterne funktioniert: Die Aktivität aller Sterne im System wurde durch ihre Leuchtkraft, ihre Rotation und sonst nichts angetrieben.
+Die Leuchtkraft und die Rotation werden zusammen verwendet, um die Rossby-Zahl eines Sterns zu bestimmen, die mit dem Plasmastrom in Zusammenhang steht.
+Je kleiner die Rossby-Zahl, desto weniger aktiv ist der Stern in Bezug auf magnetische Umkehrungen.
+Während seiner Reise geriet Iwasaki mehrfach in Schwierigkeiten.
+Er wurde von Piraten ausgeraubt, in Tibet von einem tollwütigen Hund angegriffen, entkam einer Heirat in Nepal und wurde in Indien verhaftet.
+Der 802.11n-Standard arbeitet sowohl auf den 2,4-GHz- als auch auf den 5,0-GHz-Frequenzen.
+Dies wird es ermöglichen, abwärtskompatibel mit 802.11a, 802.11b und 802.11g zu sein, vorausgesetzt, dass die Basisstation über zwei Funkgeräte verfügt.
+Die Geschwindigkeiten von 802.11n sind wesentlich schneller als die seiner Vorgänger mit einem maximalen theoretischen Durchsatz von 600 Mbit/s.
+Duvall, der verheiratet ist und zwei erwachsene Kinder hat, hinterließ bei Miller, dem die Geschichte erzählt wurde, keinen großen Eindruck.
+Als er um einen Kommentar gebeten wurde, sagte Miller: "Mike redet viel während der Anhörung... Ich habe mich vorbereitet, also habe ich nicht wirklich gehört, was er gesagt hat."
+"Wir werden uns bemühen, die Kohlendioxidemissionen pro Einheit des BIP bis 2020 im Vergleich zum Niveau von 2005 deutlich zu senken", sagte Hu.
+Er nannte keine Zahl für die Kürzungen und sagte, sie würden auf der Wirtschaftsleistung Chinas basieren.
+Hu ermutigte die Entwicklungsländer, "den alten Weg zu vermeiden, zuerst zu verschmutzen und später aufzuräumen."
+Er fügte hinzu, dass "sie jedoch nicht gebeten werden sollten, Verpflichtungen zu übernehmen, die über ihr Entwicklungsstadium, ihre Verantwortung und Fähigkeiten hinausgehen."

@@ -1,0 +1,25 @@
+Greek_scores.txt: 0.5945
+Arabic_scores.txt: 0.6433
+German_scores.txt: 0.7077
+Italian_scores.txt: 0.6827
+Sinhala_scores.txt: 0.6732
+Marathi_scores.txt: 0.6351
+Spanish_scores.txt: 0.6565
+Tagalog_scores.txt: 0.6002
+Urdu_scores.txt: 0.5460
+Korean_scores.txt: 0.5860
+Bengali_scores.txt: 0.6433
+Turkish_scores.txt: 0.6619
+Vietnamese_scores.txt: 0.6613
+Croatian_scores.txt: 0.7098
+Telugu_scores.txt: 0.6190
+Romanian_scores.txt: 0.7590
+French_scores.txt: 0.7541
+Mandarin Chinese_scores.txt: 0.6747
+Portuguese_scores.txt: 0.7386
+Russian_scores.txt: 0.7061
+Hindi_scores.txt: 0.6598
+Tamil_scores.txt: 0.6818
+Japanese_scores.txt: 0.6562
+
+Overall Average: 0.6631

@@ -1,0 +1,57 @@
+MODELNAME gpt-4o
+NLINES 50
+STRATEGY_NAME pass@1-vanilla
+SOURCEFILE /Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest/devtest.eng_Latn
+SOURCE English
+TARGET Portuguese
+
+"Agora temos camundongos de 4 meses que não são diabéticos e que costumavam ser diabéticos", acrescentou.
+Dr. Ehud Ur, professor de medicina na Universidade Dalhousie em Halifax, Nova Escócia e presidente da divisão clínica e científica da Associação Canadense de Diabetes, alertou que a pesquisa ainda está em seus estágios iniciais.
+Como alguns outros especialistas, ele é cético quanto à possibilidade de cura do diabetes, observando que essas descobertas não têm relevância para pessoas que já têm diabetes tipo 1.
+Na segunda-feira, Sara Danius, secretária permanente do Comitê Nobel de Literatura na Academia Sueca, anunciou publicamente durante um programa de rádio na Sveriges Radio, na Suécia, que o comitê, incapaz de contatar Bob Dylan diretamente sobre ganhar o Prêmio Nobel de Literatura de 2016, havia abandonado seus esforços para alcançá-lo.
+Danius disse: "Neste momento, não estamos fazendo nada. Eu liguei e enviei e-mails para seu colaborador mais próximo e recebi respostas muito amigáveis. Por enquanto, isso é certamente suficiente."
+Anteriormente, o CEO da Ring, Jamie Siminoff, comentou que a empresa começou quando a campainha de sua casa não era audível em sua oficina na garagem.
+Ele construiu uma campainha WiFi, ele disse.
+Siminoff disse que as vendas aumentaram após sua aparição em um episódio de Shark Tank em 2013, onde o painel do programa recusou financiar a startup.
+No final de 2017, Siminoff apareceu no canal de compras QVC.
+A Ring também resolveu um processo judicial com a empresa de segurança concorrente, a ADT Corporation.
+Embora uma vacina experimental pareça capaz de reduzir a mortalidade por Ebola, até agora, nenhum medicamento foi claramente demonstrado como adequado para tratar a infecção existente.
+Um coquetel de anticorpos, o ZMapp, inicialmente mostrou-se promissor no campo, mas estudos formais indicaram que ele tinha menos benefício do que o esperado na prevenção de mortes.
+No ensaio PALM, o ZMapp serviu como controle, o que significa que os cientistas o usaram como referência e compararam os outros três tratamentos a ele.
+A USA Gymnastics apoia a carta do Comitê Olímpico dos Estados Unidos e aceita a necessidade absoluta da família olímpica de promover um ambiente seguro para todos os nossos atletas.
+Concordamos com a declaração do USOC de que os interesses de nossos atletas e clubes, e de seu esporte, podem ser melhor atendidos avançando com mudanças significativas dentro de nossa organização, em vez da descredenciamento.
+A USA Gymnastics apoia uma investigação independente que possa lançar luz sobre como o abuso da proporção descrita tão corajosamente pelos sobreviventes de Larry Nassar pôde passar despercebido por tanto tempo e adota quaisquer mudanças necessárias e apropriadas.
+A USA Gymnastics e o USOC têm o mesmo objetivo — tornar o esporte da ginástica, e outros, o mais seguro possível para que os atletas possam seguir seus sonhos em um ambiente seguro, positivo e empoderado.
+Ao longo da década de 1960, Brzezinski trabalhou para John F. Kennedy como seu assessor e depois para a administração de Lyndon B. Johnson.
+Durante as eleições de 1976, ele aconselhou Carter sobre política externa, depois serviu como Conselheiro de Segurança Nacional (NSA) de 1977 a 1981, sucedendo Henry Kissinger.
+Como NSA, ele ajudou Carter a lidar diplomaticamente com os assuntos mundiais, como os Acordos de Camp David, 1978; a normalização das relações EUA-China no final dos anos 1970; a Revolução Iraniana, que levou à crise dos reféns no Irã, 1979; e a invasão soviética no Afeganistão, 1979.
+O filme, com Ryan Gosling e Emma Stone, recebeu indicações em todas as principais categorias.
+Gosling e Stone receberam indicações para Melhor Ator e Atriz, respectivamente.
+As outras indicações incluem Melhor Filme, Diretor, Fotografia, Figurino, Edição de Filme, Trilha Sonora Original, Design de Produção, Edição de Som, Mixagem de Som e Roteiro Original.
+Duas músicas do filme, Audition (The Fools Who Dream) e City of Stars, receberam indicações para melhor canção original. O estúdio Lionsgate recebeu 26 indicações — mais do que qualquer outro estúdio.
+No final do domingo, o presidente dos Estados Unidos, Donald Trump, em uma declaração feita através do secretário de imprensa, anunciou que as tropas americanas deixariam a Síria.
+O anúncio foi feito após Trump ter uma conversa telefônica com o presidente turco Recep Tayyip Erdoğan.
+A Turquia também assumiria a guarda dos combatentes do ISIS capturados, que, segundo a declaração, as nações europeias se recusaram a repatriar.
+Isso não só confirma que pelo menos alguns dinossauros tinham penas, uma teoria já amplamente difundida, mas também fornece detalhes que os fósseis geralmente não podem, como cor e arranjo tridimensional.
+. Cientistas dizem que a plumagem deste animal era marrom-avermelhada na parte superior com a parte inferior pálida ou de cor carotenoide.
+A descoberta também oferece insights sobre a evolução das penas nas aves.
+Como as penas dos dinossauros não possuem um eixo bem desenvolvido, chamado ráquis, mas possuem outras características das penas — barbas e bárbulas — os pesquisadores inferiram que o ráquis provavelmente foi um desenvolvimento evolutivo posterior a essas outras características.
+A estrutura das penas sugere que elas não eram usadas para voo, mas sim para regulação de temperatura ou exibição. Os pesquisadores sugeriram que, embora esta seja a cauda de um jovem dinossauro, a amostra mostra plumagem adulta e não o penugem de um filhote.
+Os pesquisadores sugeriram que, embora esta seja a cauda de um dinossauro jovem, a amostra mostra plumagem adulta e não o penugem de um filhote.
+Uma bomba de carro detonada na sede da polícia em Gaziantep, Turquia, na manhã de ontem, matou dois policiais e feriu mais de vinte outras pessoas.
+O gabinete do governador disse que dezenove dos feridos eram policiais.
+A polícia disse suspeitar que um suposto militante do Daesh (ISIL) seja responsável pelo ataque.
+Descobriram que o Sol operava nos mesmos princípios básicos que outras estrelas: A atividade de todas as estrelas no sistema foi encontrada como sendo impulsionada por sua luminosidade, sua rotação e nada mais.
+A luminosidade e a rotação são usadas juntas para determinar o número de Rossby de uma estrela, que está relacionado ao fluxo de plasma.
+Quanto menor o número de Rossby, menos ativa é a estrela em relação às reversões magnéticas.
+Durante sua viagem, Iwasaki encontrou problemas em muitas ocasiões.
+Ele foi roubado por piratas, atacado no Tibete por um cão raivoso, escapou de um casamento no Nepal e foi preso na Índia.
+O padrão 802.11n opera nas frequências de 2.4Ghz e 5.0Ghz.
+Isso permitirá que seja compatível com versões anteriores de 802.11a, 802.11b e 802.11g, desde que a estação base tenha rádios duplos.
+As velocidades do 802.11n são substancialmente mais rápidas do que as de seus predecessores, com uma taxa de transferência teórica máxima de 600Mbit/s.
+Duvall, que é casado e tem dois filhos adultos, não deixou uma grande impressão em Miller, a quem a história foi contada.
+Quando solicitado a comentar, Miller disse: "Mike fala muito durante a audiência... Eu estava me preparando, então não estava realmente ouvindo o que ele estava dizendo."
+"Nos empenharemos para reduzir as emissões de dióxido de carbono por unidade de PIB por uma margem notável até 2020 em relação ao nível de 2005", disse Hu.
+Ele não estabeleceu um valor para os cortes, dizendo que eles serão feitos com base na produção econômica da China.
+Hu incentivou os países em desenvolvimento "a evitar o antigo caminho de poluir primeiro e limpar depois."
+Ele acrescentou que "eles não devem, no entanto, ser solicitados a assumir obrigações que vão além de seu estágio de desenvolvimento, responsabilidade e capacidades."
