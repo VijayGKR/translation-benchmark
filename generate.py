@@ -5,12 +5,20 @@ import json
 import textwrap
 from utils import read_lines, load_strategy
 from models import MODELS
-from models import OpenAILLM, GoogleLLM, AnthropicLLM, TogetherLLM
+from models import OpenAILLM, GoogleLLM, AnthropicLLM, TogetherLLM, LLMRateLimitError, LLMAPIError
 
 
 async def executeCalls(calls):
     async def make_call(llm, prompt, system_prompt, temperature):
-        return await llm(prompt, system_prompt, temperature)
+        for _ in range(3):
+            try:
+                return await llm(prompt, system_prompt, temperature)
+            except LLMRateLimitError as e:
+                print(f"{llm.model_name} rate limited. Waiting {e.cooldown} seconds before retrying...")
+                await asyncio.sleep(e.cooldown)
+            except LLMAPIError as e:
+                print(f"Error calling {llm.model_name}: {str(e)}")
+
 
     async with aiohttp.ClientSession() as session:
         tasks = []

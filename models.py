@@ -4,9 +4,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import json
-from openai import AsyncOpenAI
+from openai import AsyncOpenAI, RateLimitError as OpenAIRateLimitError
 import anthropic
+from anthropic import RateLimitError as AnthropicRateLimitError
 import google.generativeai as genai
+from google.api_core.exceptions import TooManyRequests as GoogleRateLimitError
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
 
 
@@ -21,6 +23,17 @@ MODELS = {
 }
 
 __all__ = ['MODELS']
+
+
+# Custom error classes
+class LLMAPIError(Exception):
+    pass
+
+class LLMRateLimitError(Exception):
+    def __init__(self, message, cooldown=0):
+        super().__init__(message)
+        self.cooldown = cooldown
+
 
 # Define LLM classes
 class LLM:
@@ -44,15 +57,22 @@ class OpenAILLM(LLM):
         )
 
     async def __call__(self, prompt, system_prompt, temperature=0.0):
-        completion = await self.client.chat.completions.create(
-            model=self.model_name,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=temperature
-        )
-        return completion.choices[0].message.content
+        try:
+            completion = await self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=temperature
+                )
+            return completion.choices[0].message.content
+        except OpenAIRateLimitError as e:
+            cooldown = e.retry_after if hasattr(e, 'retry_after') else 60
+            raise LLMRateLimitError(f"OpenAI rate limit exceeded. Please try again later.", cooldown)
+        except Exception as e:
+            raise LLMAPIError(f"Unexpected error calling OpenAI: {str(e)}")
+
 
     async def call_with_function(self, prompt, functions, system_prompt, temperature=0.0):
         completion = await self.client.chat.completions.create(
@@ -76,16 +96,22 @@ class AnthropicLLM(LLM):
         self.client = anthropic.AsyncAnthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
     async def __call__(self, prompt, system_prompt, temperature=0.0):
-        completion = await self.client.messages.create(
-            model=self.model_name,
-            max_tokens=1000,
-            system=system_prompt,
-            messages=[
-                {"role": "user", "content": prompt}
-            ],
-            temperature=temperature
-        )
-        return completion.content[0].text
+        try:
+            completion = await self.client.messages.create(
+                model=self.model_name,
+                max_tokens=1000,
+                system=system_prompt,
+                messages=[
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=temperature
+            )
+            return completion.content[0].text
+        except AnthropicRateLimitError as e:
+            cooldown = 60
+            raise LLMRateLimitError(f"Anthropic rate limit exceeded. Please try again later.", cooldown)
+        except Exception as e:
+            raise LLMAPIError(f"Unexpected error calling Anthropic: {str(e)}")
 
     async def call_with_function(self, prompt, functions, system_prompt, temperature=0.0):
         completion = await self.client.messages.create(
@@ -113,20 +139,25 @@ class GoogleLLM(LLM):
         genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
     async def __call__(self, prompt, system_prompt, temperature=0.0, response_format='text/plain'):
-        model = genai.GenerativeModel(model_name=self.model_name,
-                                      system_instruction=system_prompt)
-        result = await model.generate_content_async(
-            [prompt],
-            safety_settings={
-                HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
-                HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
-                HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
-                HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
-            },
-            generation_config={"response_mime_type": response_format, "temperature": temperature}
-        )
-        return result.text
-    
+        try:
+            model = genai.GenerativeModel(model_name=self.model_name,
+                                        system_instruction=system_prompt)
+            result = await model.generate_content_async(
+                [prompt],
+                safety_settings={
+                    HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+                    HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+                    HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+                    HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+                },
+                generation_config={"response_mime_type": response_format, "temperature": temperature}
+            )
+            return result.text
+        except GoogleRateLimitError as e:
+            cooldown = 60
+            raise LLMRateLimitError(f"Google API quota exceeded. Please try again later.", cooldown)
+        except Exception as e:
+            raise LLMAPIError(f"Unexpected error calling Google: {str(e)}")
 
 class TogetherLLM(LLM):
     def __init__(self, model_name, session):
@@ -139,12 +170,18 @@ class TogetherLLM(LLM):
         )
 
     async def __call__(self, prompt, system_prompt, temperature=0.0):
-        completion = await self.client.chat.completions.create(
-            model=self.model_name,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=temperature
-        )
-        return completion.choices[0].message.content
+        try:
+            completion = await self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=temperature
+            )
+            return completion.choices[0].message.content
+        except OpenAIRateLimitError as e:
+            cooldown = e.retry_after if hasattr(e, 'retry_after') else 60
+            raise LLMRateLimitError(f"Together rate limit exceeded. Please try again later.", cooldown)
+        except Exception as e:
+            raise LLMAPIError(f"Unexpected error calling Together: {str(e)}")
