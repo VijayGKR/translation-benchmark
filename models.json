@@ -21,6 +21,11 @@
       "provider": "Anthropic"
     },
     {
+      "name" : "Gemini-1.5-Flash",
+      "apiName" : "gemini-1.5-flash",
+      "provider" : "Google"
+    },
+    {
       "name": "Gemini-1.5-Pro",
       "apiName": "gemini-1.5-pro",
       "provider": "Google"
@@ -34,6 +39,16 @@
       "name": "Gemma-2-27b",
       "apiName": "google/gemma-2-27b-it",
       "provider": "Together"
+    },
+    {
+      "name": "Gemma-2b",
+      "apiName": "google/gemma-2b-it",
+      "provider": "Together"
+    },
+    {
+      "name": "o1-preview",
+      "apiName": "o1-preview",
+      "provider": "OpenAI"
     }
 
   ]

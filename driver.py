@@ -38,6 +38,7 @@ def run_experiment(config, experiment_name):
     with open('models.json', 'r') as models_file:
         models_config = json.load(models_file)['models']
 
+    print("helo")
     # Create a folder for the experiment outputs
     output_folder = f"output_{experiment_name}"
     os.makedirs(output_folder, exist_ok=True)

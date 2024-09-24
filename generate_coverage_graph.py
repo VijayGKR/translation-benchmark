@@ -5,6 +5,25 @@ import numpy as np
 from math import comb
 from functools import reduce
 
+
+def calculate_average_max_for_all_n_2(group1, group2):
+    results = []
+    # Combine group1 and group2 into tuples
+    combined = list(zip(group1, group2))
+    
+    # Sort the combined list based on the second element (group2) in ascending order
+    sorted_combined = sorted(combined, key=lambda x: x[1])
+    group_size = len(sorted_combined)
+     # Sort the group in descending order
+    
+    for n in range(1, group_size + 1):
+        sum_of_maximums = sum(sorted_combined[k-1][0] * comb(k-1, n-1) for k in range(n, group_size + 1))
+        average_max = sum_of_maximums / comb(group_size, n)
+        results.append(average_max)
+    
+    return results
+
+
 def calculate_average_max_for_all_n(group):
     results = []
     group_size = len(group)
@@ -35,6 +54,41 @@ def get_all_groups(filename, group_size=100):
         all_groups.append(current_group)
     return all_groups
 
+def get_all_groups(filename, filename2, group_size=100):
+    all_groups = []
+    all_groups2 = []
+    current_group = []
+    current_group2 = []
+    
+    with open(filename, 'r') as file:
+        for line in file:
+            try:
+                number = float(line.strip())
+                current_group.append(number)
+                if len(current_group) == group_size:
+                    all_groups.append(current_group)
+                    current_group = []
+            except ValueError:
+                continue  # Skip non-numeric lines
+    if current_group:  # Add the last group if it's not empty
+        all_groups.append(current_group)
+    
+    with open(filename2, 'r') as file:
+        for line in file:
+            try:
+                number = float(line.strip())
+                current_group2.append(number)
+                if len(current_group2) == group_size:
+                    all_groups2.append(current_group2)
+                    current_group2 = []
+            except ValueError:
+                continue  # Skip non-numeric lines
+    if current_group2:  # Add the last group if it's not empty
+        all_groups2.append(current_group2)
+    
+    return all_groups, all_groups2
+
+
 def get_common_languages(gpt4o_baseline, deepl_baseline, google_baseline):
     gpt4o_langs = set(gpt4o_baseline.keys())
     deepl_langs = set(deepl_baseline.keys())
@@ -45,8 +99,8 @@ def calculate_average(baseline, languages):
     return sum(baseline[lang] for lang in languages) / len(languages)
 
 if __name__ == "__main__":
-    directory = '/Users/vijaykumaravelrajan/Downloads/eval_data_fixed'
-    output_directory = 'Compute_Graphs_By_Language'
+    directory = '/Users/vijaykumaravelrajan/translation-benchmark/COMETQE'
+    output_directory = 'Compute_Reward_Graphs_By_Language'
     
     os.makedirs(output_directory, exist_ok=True)
     
@@ -151,12 +205,28 @@ if __name__ == "__main__":
     google_common_average = calculate_average(google_baseline, common_languages)
 
     for filename in os.listdir(directory):
+
         if filename.endswith('.txt'):
             print(filename)
-            file_path = os.path.join(directory, filename)
+            # Extract the language name from the filename
+            language = filename.split('_')[0]
             
-            all_groups = get_all_groups(file_path)
-            all_results = [calculate_average_max_for_all_n(group) for group in all_groups]
+            # Find the corresponding .reward file
+            reward_file = None
+            for file in os.listdir(directory):
+                if file.endswith('.reward') and language in file:
+                    reward_file = file
+                    break
+            
+            if reward_file is None:
+                print(f"No corresponding .reward file found for {filename}")
+                continue
+            
+            file_path = os.path.join(directory, filename)
+            reward_path = os.path.join(directory, reward_file)
+            
+            group1, group2 = get_all_groups(file_path, reward_path)
+            all_results = [calculate_average_max_for_all_n_2(g1, g2) for g1, g2 in zip(group1, group2)]
             average_results = np.mean(all_results, axis=0)
             
             all_languages_results.append(average_results)
@@ -169,23 +239,23 @@ if __name__ == "__main__":
             ax.plot(range(1, len(average_results) + 1), average_results)
             
             # Add red dashed line for GPT-4O baseline
-            gpt4o_average = gpt4o_baseline.get(filename)
-            if gpt4o_average is not None:
-                ax.axhline(y=gpt4o_average, color='r', linestyle='--', label=f'GPT-4O Base Line: {gpt4o_average:.4f}')
+            #gpt4o_average = gpt4o_baseline.get(filename)
+            #if gpt4o_average is not None:
+               #ax.axhline(y=gpt4o_average, color='r', linestyle='--', label=f'GPT-4O Base Line: {gpt4o_average:.4f}')
             
             # Add green dashed line for DeepL baseline if available
-            deepl_average = deepl_baseline.get(filename)
-            if deepl_average is not None:
-                ax.axhline(y=deepl_average, color='g', linestyle='--', label=f'DeepL Base Line: {deepl_average:.4f}')
+            #deepl_average = deepl_baseline.get(filename)
+            #if deepl_average is not None:
+               # ax.axhline(y=deepl_average, color='g', linestyle='--', label=f'DeepL Base Line: {deepl_average:.4f}')
             
             # Add blue dashed line for Google baseline if available
-            google_average = google_baseline.get(filename)
-            if google_average is not None:
-                ax.axhline(y=google_average, color='b', linestyle='--', label=f'Google Base Line: {google_average:.4f}')
+            #google_average = google_baseline.get(filename)
+            #if google_average is not None:
+               # ax.axhline(y=google_average, color='b', linestyle='--', label=f'Google Base Line: {google_average:.4f}')
             
             # Add vertical dashed line at n = 26 and shade area below
-            ax.axvline(x=26, color='purple', linestyle='--')
-            ax.fill_between(range(1, 27), ax.get_ylim()[0], average_results[:26], alpha=0.2, color='purple', label='Pricing cheaper than base line')
+            ##ax.axvline(x=26, color='purple', linestyle='--')
+            #ax.fill_between(range(1, 27), ax.get_ylim()[0], average_results[:26], alpha=0.2, color='purple', label='Pricing cheaper than base line')
             
             ax.set_xlabel('n (number of elements chosen)')
             ax.set_ylabel('Average Max Score')
@@ -208,8 +278,8 @@ if __name__ == "__main__":
     
     # Add baseline lines for overall averages (all languages)
     ax.axhline(y=gpt4o_overall_average, color='r', linestyle='--', label=f'GPT-4O Base Line: {gpt4o_overall_average:.4f}')
-    ax.axhline(y=deepl_overall_average, color='g', linestyle='--', label=f'DeepL Base Line: {deepl_overall_average:.4f}')
-    ax.axhline(y=google_overall_average, color='b', linestyle='--', label=f'Google Base Line: {google_overall_average:.4f}')
+    #ax.axhline(y=deepl_overall_average, color='g', linestyle='--', label=f'DeepL Base Line: {deepl_overall_average:.4f}')
+    #ax.axhline(y=google_overall_average, color='b', linestyle='--', label=f'Google Base Line: {google_overall_average:.4f}')
     
     # Add vertical dashed line at n = 26 and shade area below
     ax.axvline(x=26, color='purple', linestyle='--')
@@ -236,8 +306,8 @@ if __name__ == "__main__":
     
     # Add baseline lines for common languages averages
     ax.axhline(y=gpt4o_common_average, color='r', linestyle='--', label=f'GPT-4O Base Line: {gpt4o_common_average:.4f}')
-    ax.axhline(y=deepl_common_average, color='g', linestyle='--', label=f'DeepL Base Line: {deepl_common_average:.4f}')
-    ax.axhline(y=google_common_average, color='b', linestyle='--', label=f'Google Base Line: {google_common_average:.4f}')
+    #ax.axhline(y=deepl_common_average, color='g', linestyle='--', label=f'DeepL Base Line: {deepl_common_average:.4f}')
+    #ax.axhline(y=google_common_average, color='b', linestyle='--', label=f'Google Base Line: {google_common_average:.4f}')
     
     # Add vertical dashed line at n = 26 and shade area below
     ax.axvline(x=26, color='purple', linestyle='--')
