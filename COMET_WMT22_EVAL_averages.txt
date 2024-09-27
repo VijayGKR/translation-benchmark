@@ -1,0 +1,25 @@
+gpt-4o-mini_English_to_Mandarin Chinese.eval: 0.8361
+gpt-4o-mini_English_to_Telugu.eval: 0.5532
+gpt-4o-mini_English_to_Tagalog.eval: 0.7898
+gpt-4o-mini_English_to_Greek.eval: 0.8512
+gpt-4o-mini_English_to_Tamil.eval: 0.5979
+gpt-4o-mini_English_to_Hindi.eval: 0.7435
+gpt-4o-mini_English_to_Spanish.eval: 0.8248
+gpt-4o-mini_English_to_Turkish.eval: 0.8657
+gpt-4o-mini_English_to_Sinhala.eval: 0.6051
+gpt-4o-mini_English_to_German.eval: 0.8381
+gpt-4o-mini_English_to_Vietnamese.eval: 0.8235
+gpt-4o-mini_English_to_Japanese.eval: 0.8744
+gpt-4o-mini_English_to_Urdu.eval: 0.7644
+gpt-4o-mini_English_to_Romanian.eval: 0.8260
+gpt-4o-mini_English_to_Korean.eval: 0.7691
+gpt-4o-mini_English_to_Croatian.eval: 0.8370
+gpt-4o-mini_English_to_Russian.eval: 0.8884
+gpt-4o-mini_English_to_Portuguese.eval: 0.8659
+gpt-4o-mini_English_to_Bengali.eval: 0.7811
+gpt-4o-mini_English_to_Italian.eval: 0.8667
+gpt-4o-mini_English_to_Marathi.eval: 0.6069
+gpt-4o-mini_English_to_Arabic.eval: 0.8353
+gpt-4o-mini_English_to_French.eval: 0.8403
+
+Overall Average: 0.7863

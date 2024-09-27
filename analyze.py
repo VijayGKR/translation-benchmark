@@ -35,7 +35,7 @@ def calculate_average_max(filename, group_size=100, lines_to_include=None):
         return 0
 
 if __name__ == "__main__":
-    directory = '/Users/vijaykumaravelrajan/Downloads/google_llm_eval_data'
+    directory = '/Users/vijaykumaravelrajan/Downloads/eval_data_gpt-4o'
     results = {}
     group_size = 1  # Default group size, can be changed here
 
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     overall_average = np.mean(list(results.values()))
 
     # Output averages to a text file
-    output_file = 'google_llm_averages.txt'
+    output_file = 'eval_data_gpt-4o_bluert_averages.txt'
     with open(output_file, 'w') as f:
         for filename, average in results.items():
             f.write(f"{filename}: {average:.4f}\n")
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     plt.legend()
 
     # Save the plot as an image file
-    plt.savefig('google_llm_average_max_scores.png')
+    plt.savefig('eval_data_gpt-4o_bluert_average_max_scores.png')
     plt.close()
 
     print(f"Results have been saved to {output_file}")
