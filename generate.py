@@ -5,7 +5,7 @@ import json
 import textwrap
 from utils import read_lines, load_strategy
 from models import MODELS
-from models import OpenAILLM, GoogleLLM, AnthropicLLM, TogetherLLM, LLMRateLimitError, LLMAPIError
+from models import OpenAILLM, GoogleLLM, AnthropicLLM, TogetherLLM, o1LLM, LLMRateLimitError, LLMAPIError
 
 
 async def executeCalls(calls):
@@ -32,6 +32,8 @@ async def executeCalls(calls):
                 llm = GoogleLLM(call['llm'], session)
             elif llm_type == 'Together':
                 llm = TogetherLLM(call['llm'], session)
+            elif llm_type == 'o1':
+                llm = o1LLM(call['llm'], session)
             else:
                 raise ValueError(f"Unknown LLM type: {llm_type}")
             

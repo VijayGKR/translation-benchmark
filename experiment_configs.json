@@ -109,6 +109,32 @@
             "target_languages": [
                 "Hindi", "Russian", "Arabic"
             ] 
+        },
+        "gemini-1-5-flash-8b-baseline": {
+            "base_path": "/Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest",
+            "source_language": "English",
+            "source_code": "eng_Latn",
+            "llm_types": ["Gemini-1.5-Flash-8b"],
+            "temperature": 1,
+            "num_lines": 10,
+            "strategy": "pass@10-vanilla",
+            "target_languages": [
+                "Hindi", "Russian", "Arabic"
+            ] 
+        },
+        "gemini-1-5-flash-8b-baseline-all": {  
+            "base_path": "/Users/vijaykumaravelrajan/Downloads/floresp-v2.0-rc.3/devtest",
+            "source_language": "English",
+            "source_code": "eng_Latn",
+            "llm_types": ["Gemini-1.5-Flash-8b"],
+            "temperature": 1,
+            "num_lines": 50,
+            "strategy": "pass@100-vanilla",
+            "target_languages": [
+                    "Hindi", "Russian", "Arabic", "Spanish", "Japanese", "German", "Mandarin Chinese",
+                "French", "Korean", "Italian", "Bengali", "Urdu", "Greek", "Portuguese", "Tamil",
+                "Vietnamese", "Romanian", "Turkish", "Marathi", "Telugu", "Tagalog", "Croatian", "Sinhala"
+            ] 
         }
     }
 }

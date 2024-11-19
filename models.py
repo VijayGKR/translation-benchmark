@@ -42,6 +42,35 @@ class LLM:
 
     async def __call__(self, prompt, system_prompt, temperature=0.0):
         raise NotImplementedError("Subclasses must implement this method")
+    
+class o1LLM(LLM):
+    def __init__(self, model_name, session):
+        super().__init__()
+        self.model_name = model_name
+        self.session = session
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            raise ValueError("OPENAI_API_KEY environment variable is not set")
+        self.client = AsyncOpenAI(
+            api_key=api_key,
+            base_url=os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
+        )
+
+    async def __call__(self, prompt, system_prompt, temperature=0.0):
+        try:
+            completion = await self.client.chat.completions.create(
+                model=self.model_name,
+                messages=[
+                    {"role": "user", "content": prompt}
+                ],
+                )
+            return completion.choices[0].message.content
+        except OpenAIRateLimitError as e:
+            cooldown = e.retry_after if hasattr(e, 'retry_after') else 60
+            raise LLMRateLimitError(f"OpenAI rate limit exceeded. Please try again later.", cooldown)
+        except Exception as e:
+            raise LLMAPIError(f"Unexpected error calling OpenAI: {str(e)}")
+
 
 class OpenAILLM(LLM):
     def __init__(self, model_name, session):

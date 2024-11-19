@@ -16,6 +16,11 @@
       "provider": "OpenAI"
     },
     {
+      "name": "o1-preview",
+      "apiName": "o1-preview",
+      "provider": "o1"
+    },
+    {
       "name": "Claude-3.5-Sonnet",
       "apiName": "",
       "provider": "Anthropic"
@@ -24,6 +29,11 @@
       "name" : "Gemini-1.5-Flash",
       "apiName" : "gemini-1.5-flash",
       "provider" : "Google"
+    },
+    {
+      "name": "Gemini-1.5-Flash-8b",
+      "apiName": "gemini-1.5-flash-8b",
+      "provider": "Google"
     },
     {
       "name": "Gemini-1.5-Pro",
