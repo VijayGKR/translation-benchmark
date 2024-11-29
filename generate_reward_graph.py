@@ -99,8 +99,8 @@ def calculate_average(baseline, languages):
     return sum(baseline[lang] for lang in languages) / len(languages)
 
 if __name__ == "__main__":
-    directory = '/Users/vijaykumaravelrajan/translation-benchmark/COMETQE'
-    output_directory = 'Compute_Reward_Graphs_By_Language'
+    directory = '/Users/vijaykumaravelrajan/translation-benchmark/GEMINI_REWARD'
+    output_directory = 'Compute_Reward_Graphs_By_Language_GEMINI'
     
     os.makedirs(output_directory, exist_ok=True)
     
