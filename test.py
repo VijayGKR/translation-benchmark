@@ -1,5 +1,5 @@
 import os
-from utils import generate_reference_files
+from utils.utils import generate_reference_files
 
 output_folder = 'closed_source_eval/googletranslate_llm'
 

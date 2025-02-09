@@ -1,98 +1,91 @@
 import argparse
 import asyncio
-import aiohttp
 import json
 import textwrap
-from utils import read_lines, load_strategy
-from models import MODELS
-from models import OpenAILLM, GoogleLLM, AnthropicLLM, TogetherLLM, o1LLM, LLMRateLimitError, LLMAPIError
+from typing import List, Dict, Any
+from utils.utils import read_lines
+from utils.config import Config
+from models import LLM, LLMRateLimitError, LLMError
 
-
-async def executeCalls(calls):
-    async def make_call(llm, prompt, system_prompt, temperature):
-        for _ in range(3):
+async def executeCalls(calls: List[Dict[str, Any]]) -> List[str]:
+    """Execute a batch of LLM calls with retries"""
+    async def make_call(llm: LLM, prompt: str, system_prompt: str, temperature: float) -> str:
+        for _ in range(3):  # 3 retries
             try:
                 return await llm(prompt, system_prompt, temperature)
             except LLMRateLimitError as e:
                 print(f"{llm.model_name} rate limited. Waiting {e.cooldown} seconds before retrying...")
                 await asyncio.sleep(e.cooldown)
-            except LLMAPIError as e:
+            except LLMError as e:
                 print(f"Error calling {llm.model_name}: {str(e)}")
+                raise
 
+    # Create a single LLM instance for all calls
+    llm = LLM(calls[0]['model'])
+    
+    tasks = [
+        make_call(
+            llm,
+            call['prompt'],
+            call['system_prompt'],
+            call['temperature']
+        ) for call in calls
+    ]
 
-    async with aiohttp.ClientSession() as session:
-        tasks = []
-        for call in calls:
-            llm_type = call['model_provider']
-            if llm_type == 'OpenAI':
-                llm = OpenAILLM(call['llm'], session)
-            elif llm_type == 'Anthropic':
-                llm = AnthropicLLM(call['llm'], session)
-            elif llm_type == 'Google':
-                llm = GoogleLLM(call['llm'], session)
-            elif llm_type == 'Together':
-                llm = TogetherLLM(call['llm'], session)
-            elif llm_type == 'o1':
-                llm = o1LLM(call['llm'], session)
-            else:
-                raise ValueError(f"Unknown LLM type: {llm_type}")
-            
-            tasks.append(make_call(llm, call['prompt'], call['system_prompt'], call['temperature']))
+    results = await asyncio.gather(*tasks)
+    return results
 
-        results = await asyncio.gather(*tasks)
-        return results
+def generateCalls(config: Config, experiment_id: str, out_lang: str) -> List[Dict[str, Any]]:
+    """Generate the list of LLM calls for the experiment"""
+    experiment_config = config.get_experiment_config(experiment_id)
+    print(experiment_config)
+    strategy_config = config.get_strategy_config(experiment_config['strategy'])
+    model_config = config.get_model_config(experiment_config['model'])
+    in_lang = experiment_config['source_language']
+    source_file = experiment_config['in_file']
 
-
-def generateCalls(llm, in_lang, out_lang, source_file, out_file, strategy, num_lines):
-    sources = read_lines(source_file, int(num_lines))
-    strategy_config = load_strategy(strategy)
+    
+    sources = read_lines(source_file, experiment_config['num_lines'])
     calls = []
 
-    # Load models from JSON file
-    with open('models.json', 'r') as f:
-        models_data = json.load(f)
-
-    # Find the matching model and get its provider
-    model_provider = None
-    for model in models_data['models']:
-        if model['apiName'] == llm:
-            model_provider = model['provider']
-            break
-
-    if model_provider is None:
-        raise ValueError(f"Model '{llm}' not found in models.json")
-
-
     for source in sources:
-        system_prompt = strategy_config['system_prompt'].format(in_lang=in_lang, out_lang=out_lang)
-        prompt = strategy_config['prompt_template'].format(in_lang=in_lang, out_lang=out_lang, source=source)
+        system_prompt = strategy_config['system_prompt'].format(
+            in_lang=in_lang,
+            out_lang=out_lang
+        )
+        prompt = strategy_config['prompt_template'].format(
+            in_lang=in_lang,
+            out_lang=out_lang,
+            source=source
+        )
         
         for _ in range(strategy_config['passes']):
             calls.append({
-                'llm': llm,
-                'model_provider': model_provider,
+                'model': model_config['api_name'],
                 'prompt': prompt,
                 'system_prompt': system_prompt,
-                'temperature': strategy_config['temperature']
+                'temperature': experiment_config.get('temperature', strategy_config['temperature'])
             })
 
-    print(f"Generating with LLM: {llm}")
+    print(f"Generating with model: {experiment_config['model']}")
     print(f"Input language: {in_lang}")
     print(f"Output language: {out_lang}")
     print(f"Source file: {source_file}")
-    print(f"Output file: {out_file}")
-    print(f"Strategy: {strategy}")
-    print(f"Number of lines: {num_lines}")
+    print(f"Strategy: {experiment_config['strategy']}")
+    print(f"Number of lines: {experiment_config['num_lines']}")
 
     return calls
 
-def process_results(results, args):
+def process_results(results: List[str], args: argparse.Namespace, config: Config) -> None:
+    """Process and write results to output file"""
+    experiment_config = config.get_experiment_config(args.experiment_id)
+    
     header = textwrap.dedent(f"""
-        MODELNAME {args.llm}
-        NLINES {args.num_lines}
-        STRATEGY_NAME {args.strategy}
-        SOURCEFILE {args.source_file}
-        SOURCE {args.in_lang}
+        MODELNAME {experiment_config['model']}
+        NLINES {experiment_config['num_lines']}
+        STRATEGY_NAME {experiment_config['strategy']}
+        SOURCEFILE {experiment_config['in_file']}
+        SOURCE {experiment_config['source_language']}
         TARGET {args.out_lang}
     """).strip()
     
@@ -104,20 +97,21 @@ def process_results(results, args):
 
 async def main():
     parser = argparse.ArgumentParser(description="Language Translation benchmark")
-    parser.add_argument("llm", help="Language model to use defined in models.json")
-    parser.add_argument("in_lang", help="Input language")
+    parser.add_argument("experiment_id", help="Experiment ID from config")
+    parser.add_argument("out_file", help="Output file")
     parser.add_argument("out_lang", help="Output language")
-    parser.add_argument("source_file", help="Source file path")
-    parser.add_argument("out_file", help="Output file path")
-    parser.add_argument("strategy", help="Strategy to use")
-    parser.add_argument("num_lines", help="Number of lines to use from dataset")
 
     args = parser.parse_args()
+    config = Config()
 
-    calls = generateCalls(args.llm, args.in_lang, args.out_lang, args.source_file, args.out_file, args.strategy, args.num_lines)
-    results = await executeCalls(calls)
-    process_results(results, args)
-    print(f"Results written to {args.out_file}")
+    try:
+        calls = generateCalls(config, args.experiment_id, args.out_lang)
+        results = await executeCalls(calls)
+        process_results(results, args, config)
+        print(f"Results written to {args.out_file}")
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        raise
 
 if __name__ == "__main__":
     asyncio.run(main())

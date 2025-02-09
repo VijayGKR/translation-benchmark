@@ -1,0 +1,21 @@
+models:
+  gpt4:
+    api_name: "openai/gpt-4"
+    
+  gpt4o:
+    api_name: "openai/gpt-4o"
+    
+  gpt4o_mini:
+    api_name: "openai/gpt-4o-mini"
+
+  # claude_sonnet:
+  #   api_name: "anthropic/claude-3-sonnet"
+    
+  # gemini_pro:
+  #   api_name: "google/gemini-1.5-pro"
+
+  # gemini_flash:
+  #   api_name: "google/gemini-1.5-flash"
+    
+  # llama3_8b:
+  #   api_name: "meta-llama/llama-3-8b"

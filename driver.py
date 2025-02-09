@@ -2,78 +2,48 @@ import subprocess
 import os
 import json
 import argparse
-from utils import generate_reference_files
+from utils.utils import generate_reference_files 
+from utils.config import Config
 
-def load_config(experiment_name):
-    with open('experiment_configs.json', 'r') as config_file:
-        all_configs = json.load(config_file)
-    
-    if experiment_name not in all_configs['experiments']:
-        raise ValueError(f"Experiment '{experiment_name}' not found in configuration.")
-    
-    return all_configs['experiments'][experiment_name]
+def run_experiment(config: Config, experiment_id):
+    experiment_config = config.get_experiment_config(experiment_id)
+    SOURCE_LANGUAGE = experiment_config['source_language']
+    TEMPERATURE = experiment_config['temperature']
+    STRATEGY = experiment_config['strategy']
+    TARGET_LANGUAGES = experiment_config['target_languages']
+    MODEL = experiment_config['model']
 
-def run_experiment(config, experiment_name):
-    BASE_PATH = config['base_path']
-    SOURCE_LANGUAGE = config['source_language']
-    SOURCE_CODE = config['source_code']
-    SOURCE_FILE = f"{BASE_PATH}/devtest.{SOURCE_CODE}"
-    LLM_TYPES = config['llm_types']
-    TEMPERATURE = config['temperature']
-    NUM_LINES = config['num_lines']
-    STRATEGY = config['strategy']
-    TARGET_LANGUAGES = config['target_languages']
-
-    TARGET_CODES = {
-        "Hindi": "hin_Deva", "Russian": "rus_Cyrl", "Arabic": "arb_Arab", "Spanish": "spa_Latn",
-        "Japanese": "jpn_Jpan", "German": "deu_Latn", "Mandarin Chinese": "cmn_Hans",
-        "French": "fra_Latn", "Korean": "kor_Hang", "Italian": "ita_Latn", "Bengali": "ben_Beng",
-        "Urdu": "urd_Arab", "Greek": "ell_Grek", "Portuguese": "por_Latn", "Tamil": "tam_Taml",
-        "Vietnamese": "vie_Latn", "Romanian": "ron_Latn", "Turkish": "tur_Latn", "Marathi": "mar_Deva",
-        "Telugu": "tel_Telu", "Tagalog": "fil_Latn", "Croatian": "hrv_Latn", "Sinhala": "sin_Sinh",
-        "English": "eng_Latn"
-    }
-
-    # Load models configuration
-    with open('models.json', 'r') as models_file:
-        models_config = json.load(models_file)['models']
-
-    print("helo")
     # Create a folder for the experiment outputs
-    output_folder = f"output_{experiment_name}"
+    if not os.path.exists(f"experiments/"):
+        os.makedirs(f"experiments/", exist_ok=True)
+
+    output_folder = f"experiments/{experiment_id}"
     os.makedirs(output_folder, exist_ok=True)
 
-    for target_language in TARGET_LANGUAGES:
-        target_code = TARGET_CODES[target_language]
-        reference_file = f"{BASE_PATH}/devtest.{target_code}"
-        for llm_type in LLM_TYPES:
-            model = next((m for m in models_config if m['name'] == llm_type), None)
-            if not model:
-                print(f"Warning: Model {llm_type} not found in models.json. Skipping.")
-                continue
+    if TARGET_LANGUAGES == "minimal":
+        TARGET_LANGUAGES = config.experiments['language_groups']['minimal']
+    elif TARGET_LANGUAGES == "full":
+        TARGET_LANGUAGES = config.experiments['language_groups']['full']
 
-            print(f"Running with LLM type: {llm_type}")
-            print(f"Source Language: {SOURCE_LANGUAGE}")
-            print(f"Target Language: {target_language}")
-            print(f"Temperature: {TEMPERATURE}")
-            print(f"Strategy: {STRATEGY}")
+    for target_language in TARGET_LANGUAGES:
+
+        print(f"Running with LLM type: {MODEL}")
+        print(f"Source Language: {SOURCE_LANGUAGE}")
+        print(f"Target Language: {target_language}")
+        print(f"Temperature: {TEMPERATURE}")
+        print(f"Strategy: {STRATEGY}")
             
-            api_name = model['apiName']
-            name = model['name']
-            output_file = os.path.join(output_folder, f"{name}_{SOURCE_LANGUAGE}_to_{target_language}.txt")
+        output_file = os.path.join(output_folder, f"{MODEL}_{SOURCE_LANGUAGE}_to_{target_language}.txt")
+        print(output_file)
             
-            command = [
-                "python3", "generate.py",
-                api_name,
-                SOURCE_LANGUAGE,
-                target_language,
-                SOURCE_FILE,
-                output_file,
-                STRATEGY,
-                str(NUM_LINES)
-            ]
+        command = [
+            "python3", "generate.py",
+            experiment_id,
+            output_file,
+            target_language
+        ]
             
-            subprocess.run(command)
+        subprocess.run(command)
 
         ref_output_path = output_file.replace('.txt', '.references')
         no_header_output_path = output_file.replace('.txt', '.candidates')
@@ -81,27 +51,25 @@ def run_experiment(config, experiment_name):
         if os.path.exists(output_file):
             ref_output_path = output_file.replace('.txt', '.references')
             no_header_output_path = output_file.replace('.txt', '.candidates')
-            generate_reference_files(output_file, ref_output_path=ref_output_path, no_header_output_path=no_header_output_path)
+            generate_reference_files(config, experiment_id, output_file, ref_output_path=ref_output_path, no_header_output_path=no_header_output_path)
         else:
             print(f"Warning: Output file {output_file} does not exist. Skipping reference file generation.")
 
 def main():
     parser = argparse.ArgumentParser(description="Run translation experiments.")
-    parser.add_argument("experiment", help="Name of the experiment to run")
+    parser.add_argument("--experiment_id", help="experiment id")
     parser.add_argument("--list", action="store_true", help="List available experiments")
     args = parser.parse_args()
 
+    config = Config()
     if args.list:
-        with open('experiment_config.json', 'r') as config_file:
-            all_configs = json.load(config_file)
-        print("Available experiments:")
-        for exp_name in all_configs['experiments']:
-            print(f"- {exp_name}")
+        experiments = config.get_all_experiments()
+        for experiment_id, experiment_config in experiments.items():
+            print(f"{experiment_id}: {experiment_config}")
         return
-
     try:
-        config = load_config(args.experiment)
-        run_experiment(config, args.experiment)
+        run_experiment(config, args.experiment_id)
+        pass
     except ValueError as e:
         print(f"Error: {e}")
         print("Use --list to see available experiments.")

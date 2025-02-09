@@ -1,0 +1,76 @@
+strategies:
+  pass@1-vanilla:
+    passes: 1
+    temperature: 0.0
+    system_prompt: "You are an expert at translating text from {in_lang} to {out_lang}."
+    prompt_template: "Translate the following text from {in_lang} to {out_lang}:\n\n{source}\n\nOnly return the translated text."
+  
+  pass@10-vanilla:
+    passes: 10
+    temperature: 1.0
+    system_prompt: "You are an expert at translating text from {in_lang} to {out_lang}."
+    prompt_template: "Translate the following text from {in_lang} to {out_lang}:\n\n{source}\n\nOnly return the translated text."
+  
+  pass@100-vanilla:
+    passes: 100
+    temperature: 1.0
+    system_prompt: "You are an expert at translating text from {in_lang} to {out_lang}."
+    prompt_template: "Translate the following text from {in_lang} to {out_lang}:\n\n{source}\n\nOnly return the translated text."
+
+language_groups:
+  minimal:
+    - "Hindi"
+    - "Russian" 
+    - "Arabic"
+  
+  full:
+    - "Hindi"
+    - "Russian"
+    - "Arabic"
+    - "Spanish"
+    - "Japanese"
+    - "German"
+    - "Mandarin Chinese"
+    - "French"
+    - "Korean"
+    - "Italian"
+    - "Bengali"
+    - "Urdu"
+    - "Greek"
+    - "Portuguese"
+    - "Tamil"
+    - "Vietnamese"
+    - "Romanian"
+    - "Turkish"
+    - "Marathi"
+    - "Telugu"
+    - "Tagalog"
+    - "Croatian"
+    - "Sinhala"
+
+experiments:
+  4o_mini_english_to_all:
+    model: "gpt4o_mini"
+    num_lines: 50
+    strategy: "pass@100-vanilla"
+    target_languages: "full"
+    source_language: "English"
+    in_file: "${FLORES_PATH}/devtest/devtest.eng_Latn"
+  
+  gpt4o_baseline:
+    model: "gpt4o"
+    num_lines: 50
+    strategy: "pass@1-vanilla"
+    target_languages: "full"
+    temperature: 0.0
+    source_language: "English"
+    in_file: "${FLORES_PATH}/devtest/devtest.eng_Latn"
+    
+  4o_mini_test:
+    model: "gpt4o_mini"
+    num_lines: 10
+    strategy: "pass@10-vanilla"
+    target_languages: ["Arabic"]
+    source_language: "English"
+    in_file: "${FLORES_PATH}/devtest/devtest.eng_Latn"
+

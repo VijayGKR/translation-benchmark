@@ -1,4 +1,3 @@
-unbabel-comet>=2.1.0
-google-cloud-translate==2.0.1
-dotenv
-deepl
+python-dotenv
+openai
+yaml

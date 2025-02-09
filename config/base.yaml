@@ -1,0 +1,40 @@
+# Global settings
+api:
+  base_url: "https://openrouter.ai/api/v1"
+
+# Default paths
+paths:
+  base_flores: "${FLORES_PATH}/devtest"
+  output_dir: "${OUTPUT_DIR}"
+
+# Default source language settings
+default_source:
+  language: "English"
+  code: "eng_Latn"
+
+# Language codes mapping
+language_codes:
+  Hindi: "hin_Deva"
+  Russian: "rus_Cyrl"
+  Arabic: "arb_Arab"
+  Spanish: "spa_Latn"
+  Japanese: "jpn_Jpan"
+  German: "deu_Latn"
+  Mandarin Chinese: "cmn_Hans"
+  French: "fra_Latn"
+  Korean: "kor_Hang"
+  Italian: "ita_Latn"
+  Bengali: "ben_Beng"
+  Urdu: "urd_Arab"
+  Greek: "ell_Grek"
+  Portuguese: "por_Latn"
+  Tamil: "tam_Taml"
+  Vietnamese: "vie_Latn"
+  Romanian: "ron_Latn"
+  Turkish: "tur_Latn"
+  Marathi: "mar_Deva"
+  Telugu: "tel_Telu"
+  Tagalog: "fil_Latn"
+  Croatian: "hrv_Latn"
+  Sinhala: "sin_Sinh"
+  English: "eng_Latn" 
