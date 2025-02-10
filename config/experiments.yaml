@@ -82,3 +82,27 @@ experiments:
     target_languages: ["Tamil"]
     source_language: "English"
     in_file: "${FLORES_PATH}/devtest/devtest.eng_Latn"
+
+  gemini_2.0_flash_english_to_all:
+    model: "gemini_2.0_flash"
+    num_lines: 50
+    strategy: "pass@100-vanilla"
+    target_languages: ["Tamil"]
+    source_language: "English"
+    in_file: "${FLORES_PATH}/devtest/devtest.eng_Latn"
+
+  gemini_2.0_flash_thinking_english_to_minimal:
+    model: "gemini_2.0_flash_thinking"
+    num_lines: 20
+    strategy: "pass@1-vanilla"
+    target_languages: "minimal"
+    source_language: "English"
+    in_file: "${FLORES_PATH}/devtest/devtest.eng_Latn"
+  
+  llama3.3-70b-instruct_english_to_minimal:
+    model: "llama3.3-70b-instruct"
+    num_lines: 20
+    strategy: "pass@1-vanilla"
+    target_languages: "minimal"
+    source_language: "English"
+    in_file: "${FLORES_PATH}/devtest/devtest.eng_Latn"
