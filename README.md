@@ -29,9 +29,9 @@ This project benchmarks translation quality by leveraging BLEURT as a neural eva
    pip install -r requirements.txt
    ```
    otherwise, just run 
-   '''
+   ```
    pip install -r requirements.txt
-   '''
+   ```
 
 ## Translation Evaluation Workflow
 
