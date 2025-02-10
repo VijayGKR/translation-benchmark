@@ -39,7 +39,8 @@ This project benchmarks translation quality by leveraging BLEURT as a neural eva
 
 1. **Configure Your Experiment**  
    - Modify `experiments.yaml` to define your experiment parameters
-   - Update `models.yaml` with your model configurations (refer to Openrouter documentation)
+   - To add a new model, update the models.yaml file by adding a name as well a corresponding api name
+     - You can find the api name for a model by going to https://openrouter.ai/models, and copying the api name string in grey
 
 2. **Run the Translation Driver**  
    Execute the driver script with your experiment ID:
