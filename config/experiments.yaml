@@ -74,3 +74,11 @@ experiments:
     source_language: "English"
     in_file: "${FLORES_PATH}/devtest/devtest.eng_Latn"
 
+
+  gemini_2.0_flash_english_to_all:
+    model: "gemini_2.0_flash"
+    num_lines: 50
+    strategy: "pass@100-vanilla"
+    target_languages: ["Tamil"]
+    source_language: "English"
+    in_file: "${FLORES_PATH}/devtest/devtest.eng_Latn"

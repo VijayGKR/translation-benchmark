@@ -8,6 +8,15 @@ models:
   gpt4o_mini:
     api_name: "openai/gpt-4o-mini"
 
+  gemini_2.0_pro_exp_02_05:
+    api_name: "google/gemini-2.0-pro-exp-02-05:free"
+
+  deepseek_r1:
+    api_name: "deepseek/deepseek-r1"
+
+  gemini_2.0_flash:
+    api_name: "google/gemini-2.0-flash-001"
+
   # claude_sonnet:
   #   api_name: "anthropic/claude-3-sonnet"
     

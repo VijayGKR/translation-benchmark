@@ -8,3 +8,4 @@ BLEURT-20-D12/
 /venv/
 .history/
 .venv/
+.ipynb_checkpoints/

@@ -14,9 +14,11 @@ async def executeCalls(calls: List[Dict[str, Any]]) -> List[str]:
             try:
                 return await llm(prompt, system_prompt, temperature)
             except LLMRateLimitError as e:
+                print(e)
                 print(f"{llm.model_name} rate limited. Waiting {e.cooldown} seconds before retrying...")
                 await asyncio.sleep(e.cooldown)
             except LLMError as e:
+                print(e)
                 print(f"Error calling {llm.model_name}: {str(e)}")
                 raise
 
