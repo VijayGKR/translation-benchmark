@@ -66,7 +66,9 @@ if __name__ == "__main__":
         exit(1)
     output_directory = Config.base['paths']['base_path'] + '/evals/' + f'{args.experiment_id}_graphs'
     
-    group_size = Config.get_experiment_config(args.experiment_id)['num_lines']
+    strategy = Config.get_experiment_config(args.experiment_id)['strategy']
+    group_size = Config.get_strategy_config(strategy)['passes']
+    print(f'Group size: {group_size}')
     
     if not os.path.exists(output_directory):
         os.makedirs(output_directory, exist_ok=True)
