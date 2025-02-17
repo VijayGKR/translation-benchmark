@@ -48,9 +48,10 @@ This project benchmarks translation quality by leveraging BLEURT as a neural eva
    python driver.py --experiment_id your_experiment_id
    ```
    *Note: The Openrouter API may occasionally return errors. You can either modify the experiment yaml to retry failed languages or improve the error handling.*
+   To test your installation, run the 4o-mini-test experiment
 
 3. **Verify the Outputs**  
-   Check that your generated output files match the formats in the `examples` folder.
+   Check that your generated .references files match the formats in the `examples` folder.
 
 ### 2. Evaluate Translation Quality
 
